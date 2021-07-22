@@ -1,25 +1,26 @@
-.logoColor {
-  height: 1000px;
+body {
   background-color: #f3e9f1;
+  padding-bottom: 50px;
 }
-.anim {
-  height: 100%;
-  background-color: red;
+.logo {
+  display: flex;
+  justify-content: space-around;
 }
 .button {
   display: flex;
+  justify-content: space-around;
 }
-.btn-size {
-  width: 250px;
-  height: 50px;
+.btn-style {
+  min-width: 100px;
+  max-width: 500px;
   border: 2px solid grey;
   border-radius: 20px;
-  background-color: #d27f41;
+  background-color: #dfbcd8;
   margin: 10px 20px;
 }
 .btn:hover {
   cursor: pointer;
-  background-color: #8f5bfe;
+  background-color: #eba0dc;
   transition: 1s;
 }
 a {
@@ -28,4 +29,38 @@ a {
 }
 a:hover {
   color: black;
+}
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.card {
+  min-width: 250px;
+  min-height: 250px;
+  max-width: 750px;
+  max-height: 750px;
+  display: flex;
+  margin: 20px;
+  padding-bottom: 10px;
+  border: 3px solid grey;
+  border-radius: 15px;
+}
+h3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+}
+.item {
+  min-width: 225px;
+  min-height: 175px;
+  max-width: 725px;
+  max-height: 675px;
+  object-fit: cover;
+  border-radius: 15px;
+}
+.card:hover {
+  cursor: pointer;
 }

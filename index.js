@@ -1,27 +1,36 @@
-// let product = [];
+let product = [];
+const cardContainer = document.getElementsByClassName("row-card");
+const fetchProduct = async () => {
+  await fetch("http://localhost:3000/api/cameras")
+    .then((res) => res.json())
+    .then((data) => (product = data));
 
-// const fetchProduct = async () => {
-//   await fetch("http://localhost:3000/api/furniture")
-//     .then((res) => res.json())
-//     .then((data) => (product = data));
+  console.log(product);
+};
 
-//   console.log(product);
-// };
+const productDisplay = async () => {
+  await fetchProduct();
 
-// const productDisplay = async () => {
-//   await fetchProduct();
+  cardContainer[0].innerHTML += product
+    .map(
+      (item) =>
+        `
+    <div class="container card col-12">
+      <h3> ${item.name} </h3>
+      <img class="item" src=${item.imageUrl} alt="Photo de ${item.name}" />
+    </div>
+     `
+    )
+    .join(" ");
+};
 
-//   document.body.innerHTML += product
-//     .map(
-//       (item) =>
-//         `
-//     <div class="container">
-//       <h3> ${item.name} </h3>
-//       <div> ${item.imageUrl} </div>
-//     </div>
-//      `
-//     )
-//     .join(" ");
-// };
+productDisplay();
 
-// productDisplay();
+//-------- Ajout d'une div
+
+// let newDiv = document.createElement("div");
+// let newContent = document.createTextNode("Try me");
+// const noob = document.getElementsByClassName("card-container");
+// console.log(noob);
+// newDiv.appendChild(newContent);
+// noob[0].appendChild(newDiv);
