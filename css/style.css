@@ -1,66 +1,90 @@
 body {
   background-color: #f3e9f1;
   padding-bottom: 50px;
+  padding: 0;
 }
 .logo {
   display: flex;
-  justify-content: space-around;
+  align-items: center;
+  justify-content: center;
 }
-.button {
-  display: flex;
-  justify-content: space-around;
+.figure {
+  margin: 0;
 }
-.btn-style {
-  min-width: 100px;
-  max-width: 500px;
-  border: 2px solid grey;
-  border-radius: 20px;
-  background-color: #dfbcd8;
-  margin: 10px 20px;
-}
-.btn:hover {
-  cursor: pointer;
-  background-color: #eba0dc;
-  transition: 1s;
-}
-a {
-  text-decoration: none;
-  color: black;
-}
-a:hover {
-  color: black;
-}
-.card-container {
+.cards {
+  border: 4px solid grey;
+  padding: 10px 0 0 0;
+  box-sizing: border-box;
+  border-radius: 30px;
+  margin-bottom: 25px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
 }
-.card {
-  min-width: 250px;
-  min-height: 250px;
-  max-width: 750px;
-  max-height: 750px;
-  display: flex;
-  margin: 20px;
-  padding-bottom: 10px;
-  border: 3px solid grey;
-  border-radius: 15px;
+.img-cards {
+  border-radius: 25px;
+  margin: 0;
 }
-h3 {
+h1 {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 50px;
+  width: 100%;
 }
-.item {
-  min-width: 225px;
-  min-height: 175px;
-  max-width: 725px;
-  max-height: 675px;
-  object-fit: cover;
-  border-radius: 15px;
-}
-.card:hover {
+img:hover {
   cursor: pointer;
+}
+.navbar {
+  margin-bottom: 20px;
+  padding: 5px 10px 5px 10px;
+}
+.nav-onglet {
+  width: 250px;
+}
+.fab {
+  width: 50px;
+}
+.fas {
+  width: 50px;
+  padding-left: 7px;
+}
+.nav-item > a {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 280px;
+}
+.card-container > .cards > div > p {
+  font-size: 50px;
+  margin: 0;
+  width: 70%;
+  display: flex;
+  justify-content: center;
+}
+.price {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+.btn-price {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-color: #ebd6e7;
+  border-radius: 25px;
+}
+
+@media (min-width: 992px) {
+  .navbar > a,
+  .navbar > div > ul > li > a,
+  .btn-price {
+    font-size: 50px;
+  }
+}
+@media (max-width: 992px) {
+  .card-container > .cards > div > p {
+    font-size: 20px;
+  }
 }

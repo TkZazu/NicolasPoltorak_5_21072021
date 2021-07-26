@@ -5,30 +5,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Orinoco</title>
+    <script src="https://kit.fontawesome.com/5c44671923.js" crossorigin="anonymous"></script>  
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/style.css" />
+
+ 
   </head>
   <body>
-    <div class="container-fluid">
+     <div class="container-fluid">
       <div class="container logo">
-        <div class="row logo">
-          <img src="assets/15675819263013_image1.png" alt="Logo" />
-        </div>
+          <img class="img-fluid" src="assets/15675819263013_image1.png" alt="Logo" />
       </div>
-    </div>
-    <div class="container card-container">
-      <div class="row row-card"></div>
-    </div>
-    <div class="container button">
-      <a href="assets/produits.html">
-        <button type="button" class="btn btn-style btn-lg btn-block">
-          Produits
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Menu</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
         </button>
-      </a>
-      <a href="assets/panier.html">
-        <button class="btn btn-style btn-lg">Panier</button>
-      </a>
-    </div>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="./assets/produits.html"><i class="fab fa-product-hunt"></i>Produits</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./assets/panier.html"><i class="fas fa-cart-arrow-down"></i>Panier</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div class="container card-container"></div>
+    <script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.bundle.min.js"></script>
     <script src="index.js"></script>
   </body>
 </html>

@@ -1,30 +1,29 @@
 let product = [];
-const cardContainer = document.getElementsByClassName("row-card");
+const cardContainer = document.getElementsByClassName("card-container");
 const fetchProduct = async () => {
   await fetch("http://localhost:3000/api/cameras")
     .then((res) => res.json())
     .then((data) => (product = data));
-
-  console.log(product);
-};
-
-const productDisplay = async () => {
-  await fetchProduct();
-
   cardContainer[0].innerHTML += product
     .map(
       (item) =>
         `
-    <div class="container card col-12">
-      <h3> ${item.name} </h3>
-      <img class="item" src=${item.imageUrl} alt="Photo de ${item.name}" />
+    <div class="container cards">
+      <h1> ${item.name} </h1>
+      <div class="price">
+      <p> ${item.price}€</p>
+      <button class="btn btn-price" type="button">Ajouter au panier</button>
+      </div>
+      <figure class="figure">
+      <img class="figure-img img-fluid img-cards" src=${item.imageUrl} alt="Photo de ${item.name}" />
+      </figure>
     </div>
      `
     )
     .join(" ");
 };
 
-productDisplay();
+fetchProduct();
 
 //-------- Ajout d'une div
 
