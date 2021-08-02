@@ -88,3 +88,19 @@ img:hover {
     font-size: 20px;
   }
 }
+
+/* ---------------- Formulaire -------------------- */
+
+.error input {
+  color: red;
+  border: 1px solid rgba(255, 0, 0, 0.527);
+}
+
+span {
+  opacity: 0;
+}
+.error span {
+  visibility: visible;
+  opacity: 1;
+  color: red;
+}
