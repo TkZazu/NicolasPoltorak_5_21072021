@@ -66,6 +66,7 @@ img:hover {
   justify-content: space-around;
   align-items: center;
   width: 100%;
+  padding-top: 15px;
 }
 .btn-price {
   display: flex;
@@ -75,6 +76,16 @@ img:hover {
   background-color: #ebd6e7;
   border-radius: 25px;
 }
+.infos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+select {
+  margin-bottom: 10px;
+  font-size: 20px;
+}
 
 @media (min-width: 992px) {
   .navbar > a,
@@ -82,15 +93,59 @@ img:hover {
   .btn-price {
     font-size: 50px;
   }
+  .product-cards > div > div > p {
+    font-size: 30px;
+  }
+  select {
+    font-size: 35px;
+  }
 }
 @media (max-width: 992px) {
   .card-container > .cards > div > p {
     font-size: 20px;
   }
+  .product-cards > div > div > p {
+    font-size: 15px;
+  }
 }
 
 /* ---------------- Formulaire -------------------- */
-
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  justify-content: center;
+  margin: 25px;
+  border: 3px solid #e6c6e0;
+  border-radius: 25px;
+}
+form > div {
+  font-size: 25px;
+  margin: 10px 0;
+  display: grid;
+}
+form > div > span {
+  font-size: 15px;
+  max-width: 290px;
+}
+form > div > label {
+  width: 25px;
+  margin-right: 75px;
+}
+form > div > input {
+  border-radius: 25px;
+  padding-left: 15px;
+}
+.valide {
+  font-size: 25px;
+  background-color: #ebd6e7;
+  margin: 15px 0 10px 0;
+  width: 125px;
+  height: 75px;
+  border-radius: 25px;
+  box-shadow: 10px 3px 8px black;
+}
 .error input {
   color: red;
   border: 1px solid rgba(255, 0, 0, 0.527);

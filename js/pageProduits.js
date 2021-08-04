@@ -35,10 +35,11 @@ const getProduct = async (id) => {
             <img class="figure-img img-fluid img-cards" src=${productPage.imageUrl} alt="Photo de ${productPage.name}" />
           </figure>
         </div>
-        <div class="col-8	col-sm-8	col-md-4	col-lg-4	col-xl-4">
+        <div class="col-8	col-sm-8	col-md-4	col-lg-4	col-xl-4 infos">
           <p> ${productPage.description} </p>
-          <p> ${productPage.price} </p>
-            ${lenses};
+          <p class="price"> ${productPage.price}€ </p>
+            ${lenses}
+          <button class="btn btn-price" type="button" id="${productPage._id}"> Ajouter au panier </btn>
         </div>
       </div>
       `;
