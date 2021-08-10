@@ -1,5 +1,6 @@
 let adress = window.location.search;
 let productId = adress.replace("?id=", "");
+let dataUser = [];
 
 let productPage = [];
 const productCardContainer = document.getElementsByClassName("product-cards");
@@ -37,12 +38,24 @@ const getProduct = async (id) => {
         </div>
         <div class="col-8	col-sm-8	col-md-4	col-lg-4	col-xl-4 infos">
           <p> ${productPage.description} </p>
-          <p class="price"> ${productPage.price}€ </p>
+          <p class="price"> ${productPage.price} € </p>
             ${lenses}
           <button class="btn btn-price" type="button" id="${productPage._id}"> Ajouter au panier </btn>
         </div>
       </div>
       `;
+  document.querySelectorAll(".btn").forEach((item) => {
+    item.addEventListener("click", (e) => {
+      let productToAdd = {
+        image: e.target.imageUrl,
+        id: e.target.id,
+        price: e.target.price,
+        nom: e.target.name,
+      };
+      dataUser.push(productToAdd);
+      localStorage.data = dataUser;
+    });
+  });
 };
 
 getProduct(productId);

@@ -113,12 +113,12 @@ select {
 form {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   justify-content: center;
   margin: 25px;
   border: 3px solid #e6c6e0;
   border-radius: 25px;
+  max-width: 450px;
 }
 form > div {
   font-size: 25px;

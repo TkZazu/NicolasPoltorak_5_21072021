@@ -106,7 +106,7 @@ form.addEventListener("submit", (e) => {
       city,
       email,
     };
-    console.log(data);
+    localStorage.user = data;
     inputs.forEach((input) => (input.value = ""));
 
     firstName = null;

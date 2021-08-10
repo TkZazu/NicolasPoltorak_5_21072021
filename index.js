@@ -1,4 +1,5 @@
 let productHomePage = [];
+let dataUser = [];
 const cardContainer = document.getElementsByClassName("card-container");
 const fetchProductHome = async () => {
   await fetch("http://localhost:3000/api/cameras")
@@ -22,10 +23,27 @@ const fetchProductHome = async () => {
     )
     .join(" ");
   document.querySelectorAll(".img-cards").forEach((item) => {
-    console.log("texte");
     item.addEventListener("click", (e) => {
-      // getProduct(e.target.id);
       window.location.assign("./assets/produits.html?id=" + e.target.id);
+    });
+  });
+  document.querySelectorAll(".btn").forEach((item) => {
+    item.addEventListener("click", (e) => {
+      let productToAdd = {
+        image: "",
+        id: e.target.id,
+        price: "",
+        nom: "",
+      };
+      productHomePage.forEach((product) => {
+        if (product._id == e.target.id) {
+          productToAdd["image"] = product.imageUrl;
+          productToAdd["nom"] = product.name;
+          productToAdd["price"] = product.price;
+        }
+      });
+      dataUser.push(productToAdd);
+      localStorage.data = dataUser;
     });
   });
 };
