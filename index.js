@@ -43,7 +43,7 @@ const fetchProductHome = async () => {
         }
       });
       dataUser.push(productToAdd);
-      localStorage.data = dataUser;
+      localStorage.data = JSON.stringify(dataUser);
     });
   });
 };
