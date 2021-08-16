@@ -5,65 +5,88 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Orinoco</title>
-    <script src="https://kit.fontawesome.com/5c44671923.js" crossorigin="anonymous"></script>  
+    <script
+      src="https://kit.fontawesome.com/5c44671923.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="../css/bootstrap.min.css" />
     <link rel="stylesheet" href="../css/style.css" />
   </head>
   <body>
-    <div class="container-fluid panier-container">
-      <div class="container logo">
-          <img class="img-fluid" src="../assets/15675819263013_image1.png" alt="Logo" />
-      </div>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="../index.html">Menu</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#"
+          ><img
+            class="img-fluid"
+            src="../assets/15675819263013_image1.png"
+            alt="Logo"
+        /></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarTogglerDemo02"
+          aria-controls="navbarTogglerDemo02"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link" href="./panier.html"><i class="fas fa-cart-arrow-down"></i>Panier</a>
+              <a class="nav-link active" aria-current="page" href="/"
+                >Acceuil</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./panier.html">Panier</a>
             </li>
           </ul>
         </div>
-      </nav>
+      </div>
+    </nav>
+
+    <div class="container-fluid panier-container">
       <div class="container panier"></div>
 
       <form action="">
-        <p> Tout les champs sont obligatoires.</p>
+        <p>Tout les champs sont obligatoires.</p>
         <div class="firstname-container">
           <label for="first-name">Prénom</label>
-          <input type="text" autocomplete="off" id="first-name">
+          <input type="text" autocomplete="off" id="first-name" />
           <span></span>
         </div>
-    
+
         <div class="lastname-container">
           <label for="last-name">Nom</label>
-          <input type="text" autocomplete="off" id="last-name">
+          <input type="text" autocomplete="off" id="last-name" />
           <span></span>
         </div>
-    
+
         <div class="adress-container">
           <label for="adress">Adresse</label>
-          <input type="text" autocomplete="off" id="adress">
+          <input type="text" autocomplete="off" id="adress" />
           <span></span>
         </div>
-    
+
         <div class="city-container">
           <label for="city">Ville</label>
-          <input type="text" autocomplete="off" id="city">
+          <input type="text" autocomplete="off" id="city" />
           <span></span>
         </div>
 
         <div class="email-container">
           <label for="email">Email</label>
-          <input type="text" autocomplete="off" id="email">
+          <input type="text" autocomplete="off" id="email" />
           <span></span>
         </div>
-    
-    
-        <input class="valide" type="submit" value="Valider">
+
+        <input class="valide" type="submit" value="Valider" />
       </form>
+    </div>
+
+    <script src="/js/bootstrap.bundle.min.js"></script>
     <script src="../js/form.js"></script>
     <script src="../js/pagePanier.js"></script>
   </body>
