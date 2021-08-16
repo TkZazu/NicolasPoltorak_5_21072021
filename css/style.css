@@ -159,3 +159,14 @@ span {
   opacity: 1;
   color: red;
 }
+
+/* ---------------------- panier ---------------------- */
+
+.panier {
+  display: flex;
+  flex-direction: column;
+}
+.panier-row {
+  display: flex;
+  align-items: center;
+}

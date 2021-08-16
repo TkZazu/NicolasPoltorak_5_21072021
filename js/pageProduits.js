@@ -1,6 +1,10 @@
 let adress = window.location.search;
 let productId = adress.replace("?id=", "");
 let dataUser = [];
+let panier = [];
+if (localStorage.data) {
+  panier = JSON.parse(localStorage.data);
+}
 
 let productPage = [];
 const productCardContainer = document.getElementsByClassName("product-cards");
@@ -33,27 +37,34 @@ const getProduct = async (id) => {
       <div class="row">
         <div class="col-4	col-sm-4	col-md-8	col-lg-8	col-xl-8">
           <figure class="figure">
-            <img class="figure-img img-fluid img-cards" src=${productPage.imageUrl} alt="Photo de ${productPage.name}" />
+            <img class="figure-img img-fluid img-cards" src=${
+              productPage.imageUrl
+            } alt="Photo de ${productPage.name}" />
           </figure>
         </div>
         <div class="col-8	col-sm-8	col-md-4	col-lg-4	col-xl-4 infos">
           <p> ${productPage.description} </p>
-          <p class="price"> ${productPage.price} € </p>
+          <p class="price"> ${productPage.price / 100} € </p>
             ${lenses}
-          <button class="btn btn-price" type="button" id="${productPage._id}"> Ajouter au panier </btn>
+          <button class="btn btn-price" type="button" id="${
+            productPage._id
+          }"> Ajouter au panier </btn>
         </div>
       </div>
       `;
+  if (panier.length > 0) {
+    dataUser = panier;
+  }
   document.querySelectorAll(".btn").forEach((item) => {
     item.addEventListener("click", (e) => {
       let productToAdd = {
-        image: e.target.imageUrl,
-        id: e.target.id,
-        price: e.target.price,
-        nom: e.target.name,
+        image: productPage.imageUrl,
+        id: productPage.id,
+        price: productPage.price,
+        nom: productPage.name,
       };
       dataUser.push(productToAdd);
-      localStorage.data = dataUser;
+      localStorage.data = JSON.stringify(dataUser);
     });
   });
 };

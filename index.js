@@ -1,5 +1,9 @@
 let productHomePage = [];
 let dataUser = [];
+let panier = [];
+if (localStorage.data) {
+  panier = JSON.parse(localStorage.data);
+}
 const cardContainer = document.getElementsByClassName("card-container");
 const fetchProductHome = async () => {
   await fetch("http://localhost:3000/api/cameras")
@@ -12,16 +16,24 @@ const fetchProductHome = async () => {
     <div class="container cards">
       <h1> ${item.name} </h1>
       <figure class="figure">
-      <img class="figure-img img-fluid img-cards" id="${item._id}" src=${item.imageUrl} alt="Photo de ${item.name}" />
+      <img class="figure-img img-fluid img-cards" id="${item._id}" src=${
+          item.imageUrl
+        } alt="Photo de ${item.name}" />
       </figure>
       <div class="price">
-      <p> ${item.price}€</p>
-      <button class="btn btn-price" type="button" id="${item._id}">Ajouter au panier</button>
+      <p> ${item.price / 100}€</p>
+      <button class="btn btn-price" type="button" id="${
+        item._id
+      }">Ajouter au panier</button>
       </div>
     </div>
      `
     )
     .join(" ");
+
+  if (panier.length > 0) {
+    dataUser = panier;
+  }
   document.querySelectorAll(".img-cards").forEach((item) => {
     item.addEventListener("click", (e) => {
       window.location.assign("./assets/produits.html?id=" + e.target.id);

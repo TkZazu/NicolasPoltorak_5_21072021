@@ -106,7 +106,7 @@ form.addEventListener("submit", (e) => {
       city,
       email,
     };
-    localStorage.user = data;
+    localStorage.user = JSON.stringify(data);
     inputs.forEach((input) => (input.value = ""));
 
     firstName = null;
