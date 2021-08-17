@@ -2,3 +2,12 @@
   width: 100px;
   height: auto;
 }
+.card-container {
+  justify-content: center;
+  align-items: center;
+}
+
+.panier {
+  justify-content: center;
+  align-items: center;
+}

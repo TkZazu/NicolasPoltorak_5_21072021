@@ -15,8 +15,8 @@ const getProduct = async (id) => {
 
   let lenses = "";
   if (productPage.lenses.length >= 2) {
-    lenses += `<select class="lense">
-      <option value=""> Personnaliez votre lense</option> `;
+    lenses += `<select class="form-select">
+      <option value=""> Personnalisez l'objectif</option> `;
     for (i = 0; i < productPage.lenses.length; i++) {
       if (productPage.lenses[i]) {
         lenses += `<option value=" ${productPage.lenses[i]}"> ${productPage.lenses[i]} </option>`;
@@ -32,23 +32,25 @@ const getProduct = async (id) => {
       <div class="row">
         <div class="col-12 col-sm-12	col-md-12	col-lg-12	col-xl-12">
           <h1> ${productPage.name} </h1>
-          </div>
+        </div>
       </div>
       <div class="row">
-        <div class="col-4	col-sm-4	col-md-8	col-lg-8	col-xl-8">
+        <div class="col-6	col-sm-6	col-md-8	col-lg-8	col-xl-8">
           <figure class="figure">
-            <img class="figure-img img-fluid img-cards" src=${
+            <img class="figure-img img-fluid rounded" src=${
               productPage.imageUrl
             } alt="Photo de ${productPage.name}" />
           </figure>
         </div>
-        <div class="col-8	col-sm-8	col-md-4	col-lg-4	col-xl-4 infos">
-          <p> ${productPage.description} </p>
-          <p class="price"> ${productPage.price / 100} € </p>
+        <div class="col-6	col-sm-6	col-md-4	col-lg-4	col-xl-4 infos">
+          <p card-text> ${productPage.description} </p>
+          <p class="card-text"> ${productPage.price / 100} € </p>
             ${lenses}
-          <button class="btn btn-price" type="button" id="${
+          <div style="margin-top: 50px;" class="d-grid gap-2 d-md-flex justify-content-md-end">
+          <button class="btn btn-outline-primary" type="button" id="${
             productPage._id
           }"> Ajouter au panier </btn>
+          </div>
         </div>
       </div>
       `;

@@ -13,20 +13,18 @@ const fetchProductHome = async () => {
     .map(
       (item) =>
         `
-    <div class="container cards">
-      <h1> ${item.name} </h1>
-      <figure class="figure">
-      <img class="figure-img img-fluid img-cards" id="${item._id}" src=${
+        <div class="col" style="width: 18rem;">
+          <div class="card shadow-sm">
+            <img class="card-img-top" id="${item._id}" src="${
           item.imageUrl
-        } alt="Photo de ${item.name}" />
-      </figure>
-      <div class="price">
-      <p> ${item.price / 100}€</p>
-      <button class="btn btn-price" type="button" id="${
-        item._id
-      }">Ajouter au panier</button>
-      </div>
-    </div>
+        }" alt="Photo de ${item.name}" />
+            <div class="card-body">
+              <h4> ${item.name} </h4>
+              <p class="card-text"> ${item.price / 100}€ </p>
+              <button type="button" class="btn btn-outline-primary"> Ajouter au panier </button>
+            </div>
+          </div>
+        </div>
      `
     )
     .join(" ");
@@ -34,7 +32,7 @@ const fetchProductHome = async () => {
   if (panier.length > 0) {
     dataUser = panier;
   }
-  document.querySelectorAll(".img-cards").forEach((item) => {
+  document.querySelectorAll(".card-img-top").forEach((item) => {
     item.addEventListener("click", (e) => {
       window.location.assign("./assets/produits.html?id=" + e.target.id);
     });
