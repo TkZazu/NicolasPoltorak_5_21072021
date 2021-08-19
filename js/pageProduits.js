@@ -34,10 +34,10 @@ const getProduct = async (id) => {
           <h1> ${productPage.name} </h1>
         </div>
       </div>
-      <div class="row">
+      <div class="row media">
         <div class="col-6	col-sm-6	col-md-8	col-lg-8	col-xl-8">
           <figure class="figure">
-            <img class="figure-img img-fluid rounded" src=${
+            <img class="card-img rounded" src=${
               productPage.imageUrl
             } alt="Photo de ${productPage.name}" />
           </figure>

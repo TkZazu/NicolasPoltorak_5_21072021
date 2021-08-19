@@ -10,18 +10,18 @@ const fetchPanier = async () => {
     html += `
         <div class="row panier-row">
           <div class="col-4 col-sm-4	col-md-4	col-lg-4	col-xl-4 border">
-            <h3> ${product.nom} </h3>
+            <h4> ${product.nom} </h3>
           </div>
           <div class="col-3 col-sm-3	col-md-3	col-lg-3	col-xl-3 border">
-            <img class="img-fluid" src="${product.image}" alt="Photo de ${
+            <img class="card-img" src="${product.image}" alt="Photo de ${
       product.nom
     }" />
           </div>
           <div class="col-4 col-sm-4 col-md-4	col-lg-4 col-xl-4 border">
-            <h3> ${product.price / 100}€</h3>
+            <h4> ${product.price / 100}€</h3>
           </div>
           <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 border">
-            <button class="btn btn-panier" id="${index}"><i  class="fas fa-ban"></i></button>
+            <button class="btn btn-panier " id="${index}"><i  class="fas fa-ban"></i></button>
           </div>
         </div>
           `;

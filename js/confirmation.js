@@ -37,11 +37,11 @@ fetch("http://localhost:3000/api/cameras/order", init)
   .then((data) => {
     console.log(data);
     messageContainer.innerHTML = `
-        <h1> Votre commande a bie été enregistrée </h1>
+        <h1> Votre commande a bien été enregistrée </h1>
         <p> Votre commande N° ${
           data.orderId
         } sera envoyé prochainement, vous pourrez suivre l'envoie grâce à son numéro. </p>
-        <p> Prix total : ${totalPrice / 100}€ </p>
+        <h2> Prix total : ${totalPrice / 100}€ </p>
         `;
   })
   .catch((err) => {

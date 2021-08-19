@@ -11,3 +11,69 @@
   justify-content: center;
   align-items: center;
 }
+form > div > span {
+  color: red;
+}
+.panier-row > div > h4,
+.panier-row > div > button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+form {
+  padding: 10px;
+  margin-bottom: 25px;
+}
+.product-cards {
+  padding: 15px;
+}
+
+.panier-container {
+  justify-content: center;
+  align-items: center;
+}
+.panier {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+.panier > div > div {
+  padding: 0;
+}
+.panier > div > div > img {
+  height: 100%;
+}
+
+form > p {
+  color: blue;
+}
+form > input {
+  margin-top: 10px;
+}
+
+.message > h1,
+.message > p,
+.message > h2 {
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (max-width: 768px) {
+  .product-cards > .media {
+    flex-direction: column;
+  }
+  .product-cards > div > div {
+    width: 100%;
+  }
+  .panier > div > div > h4,
+  .panier > div > div > button > i {
+    font-size: 14px;
+  }
+  .message > h1,
+  .message > p,
+  .message > h2 {
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+}
