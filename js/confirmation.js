@@ -31,7 +31,7 @@ const init = {
   },
   body: JSON.stringify(order),
 };
-console.log(init);
+
 fetch("http://localhost:3000/api/cameras/order", init)
   .then((res) => res.json())
   .then((data) => {
