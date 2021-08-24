@@ -21,9 +21,11 @@ const firstNameChecker = (value) => {
       "Le prénom ne peux pas contenir de caractères spéciaux ou de chiffres"
     );
     firstName = null;
+    document.getElementById("first-name").classList.add("is-invalid");
   } else {
     errorDisplay("firstname", "", true);
     firstName = value;
+    document.getElementById("first-name").classList.remove("is-invalid");
   }
 };
 const lastNameChecker = (value) => {
@@ -33,9 +35,11 @@ const lastNameChecker = (value) => {
       "Le nom ne peux pas contenir de caractères spéciaux ou de chiffres"
     );
     lastName = null;
+    document.getElementById("last-name").classList.add("is-invalid");
   } else {
     errorDisplay("lastname", "", true);
     lastName = value;
+    document.getElementById("last-name").classList.remove("is-invalid");
   }
 };
 const adressChecker = (value) => {
@@ -45,9 +49,11 @@ const adressChecker = (value) => {
       "L'adresse ne peux pas contenir de caractères spéciaux"
     );
     adress = null;
+    document.getElementById("adress").classList.add("is-invalid");
   } else {
     errorDisplay("adress", "", true);
     adress = value;
+    document.getElementById("adress").classList.remove("is-invalid");
   }
 };
 const cityChecker = (value) => {
@@ -57,18 +63,22 @@ const cityChecker = (value) => {
       "La ville ne peux pas contenir de caractères spéciaux ou de chiffres"
     );
     city = null;
+    document.getElementById("city").classList.add("is-invalid");
   } else {
     errorDisplay("city", "", true);
     city = value;
+    document.getElementById("city").classList.remove("is-invalid");
   }
 };
 const emailChecker = (value) => {
   if (!value.match(/^[\w_-]+@[\w-]+\.[a-z]{2,4}$/i)) {
     errorDisplay("email", "Le mail n'est pas valide");
     email = null;
+    document.getElementById("email").classList.add("is-invalid");
   } else {
     errorDisplay("email", "", true);
     email = value;
+    document.getElementById("email").classList.remove("is-invalid");
   }
 };
 inputs.forEach((input) => {

@@ -21,7 +21,9 @@ const fetchProductHome = async () => {
             <div class="card-body">
               <h4> ${item.name} </h4>
               <p class="card-text"> ${item.price / 100}€ </p>
-              <button type="button" class="btn btn-outline-primary"> Ajouter au panier </button>
+              <button type="button" id="${
+                item._id
+              }" class="btn btn-outline-primary"> Ajouter au panier </button>
             </div>
           </div>
         </div>
@@ -39,6 +41,7 @@ const fetchProductHome = async () => {
   });
   document.querySelectorAll(".btn").forEach((item) => {
     item.addEventListener("click", (e) => {
+      console.log(e.target);
       let productToAdd = {
         image: "",
         id: e.target.id,
