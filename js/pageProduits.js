@@ -59,14 +59,27 @@ const getProduct = async (id) => {
   }
   document.querySelectorAll(".btn").forEach((item) => {
     item.addEventListener("click", (e) => {
-      let productToAdd = {
-        image: productPage.imageUrl,
-        id: productPage.id,
-        price: productPage.price,
-        nom: productPage.name,
-      };
-      dataUser.push(productToAdd);
+      let find = false;
+      if (dataUser.length > 0) {
+        dataUser.forEach((item, index) => {
+          if (item.id == productPage._id) {
+            dataUser[index].quantity = item.quantity + 1;
+            find = true;
+          }
+        });
+      }
+      if (!find) {
+        let productToAdd = {
+          quantity: 1,
+          image: productPage.imageUrl,
+          id: productPage._id,
+          price: productPage.price,
+          nom: productPage.name,
+        };
+        dataUser.push(productToAdd);
+      }
       localStorage.data = JSON.stringify(dataUser);
+      alert("Produit ajouté au panier.");
     });
   });
 };

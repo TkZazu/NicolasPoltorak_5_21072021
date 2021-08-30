@@ -88,3 +88,7 @@ form > input {
     margin-top: 20px;
   }
 }
+
+.form-empty {
+  display: none;
+}

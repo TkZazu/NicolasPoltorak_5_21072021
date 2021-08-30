@@ -41,22 +41,34 @@ const fetchProductHome = async () => {
   });
   document.querySelectorAll(".btn").forEach((item) => {
     item.addEventListener("click", (e) => {
-      console.log(e.target);
       let productToAdd = {
+        quantity: 1,
         image: "",
         id: e.target.id,
         price: "",
         nom: "",
       };
+      let find = false;
       productHomePage.forEach((product) => {
         if (product._id == e.target.id) {
-          productToAdd["image"] = product.imageUrl;
-          productToAdd["nom"] = product.name;
-          productToAdd["price"] = product.price;
+          if (dataUser.length > 0) {
+            dataUser.forEach((item, index) => {
+              if (item.id == product._id) {
+                find = true;
+                dataUser[index].quantity = item.quantity + 1;
+              }
+            });
+          }
+          if (!find) {
+            productToAdd["image"] = product.imageUrl;
+            productToAdd["nom"] = product.name;
+            productToAdd["price"] = product.price;
+          }
         }
       });
-      dataUser.push(productToAdd);
+      if (!find) dataUser.push(productToAdd);
       localStorage.data = JSON.stringify(dataUser);
+      alert("Produit ajouté au panier.");
     });
   });
 };
