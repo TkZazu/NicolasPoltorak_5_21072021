@@ -62,6 +62,8 @@ form > input {
 }
 .message {
   margin: 75px 0;
+  display: contents;
+  justify-content: center;
 }
 .message > h1,
 .message > p,

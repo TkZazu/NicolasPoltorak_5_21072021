@@ -5,13 +5,17 @@ let price = [];
 let identifiant = "";
 const messageContainer = document.querySelector(".message");
 for (p = 0; p < data.length; p++) {
-  price.push(data[p].price);
+  for(i=1; i<= data[p].quantity;i++){
+    price.push(data[p].price);
+  }
 }
 const reducer = (accumulator, currentValue) => accumulator + currentValue;
 const totalPrice = price.reduce(reducer, 0);
 let productId = [];
 data.forEach((element) => {
-  productId.push(element.id);
+  for(i=1; i<= element.quantity;i++){
+    productId.push(element.id);
+  }
 });
 
 const order = {
