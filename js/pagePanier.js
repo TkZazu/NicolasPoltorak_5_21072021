@@ -1,12 +1,9 @@
-let panier =  localStorage.data ? JSON.parse(localStorage.data) : null;
+let panier = JSON.parse(localStorage.data);
 let user = localStorage.getItem("user");
 
 const panierProductContainer = document.getElementsByClassName("panier");
-const form = document.querySelector("form");
+
 const fetchPanier = async () => {
-  console.log(panier);
-  if(panier != null && panier.length!=0) {
-    form.classList.remove('form-empty')
   await fetch("http://localhost:3000/api/cameras").then((res) => res.json());
   let html = "";
   panier.forEach((product, index) => {
@@ -16,52 +13,50 @@ const fetchPanier = async () => {
             <h4> ${product.nom} </h3>
           </div>
           <div class="col-2 col-sm-2	col-md-2	col-lg-2	col-xl-2 border">
-            <img class="card-img" src="${product.image}" alt="Photo de ${product.nom}" />
+            <img class="card-img" src="${product.image}" alt="Photo de ${
+      product.nom
+    }" />
           </div>
           <div class="col-3 col-sm-3 col-md-3	col-lg-3 col-xl-3 border">
             <h4> ${(product.price / 100) * product.quantity}€</h4>
           </div>
           <div class="col-3 col-sm-3 col-md-3	col-lg-3 col-xl-3 border quantity">
             <div>
-              <button class="btn btn-quantity-minus" id="${product.id}"> - </button>
+              <button class="btn btn-quantity-minus" id="${
+                product.id
+              }"> - </button>
             </div>
             <div>
               <h4> ${product.quantity} </h4>
             </div>
             <div>
-              <button class="btn btn-quantity-plus" id="${product.id}"> + </button>
+              <button class="btn btn-quantity-plus" id="${
+                product.id
+              }"> + </button>
             </div>
           </div>
           <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 border">
-            <button class="btn btn-panier " id="${index}"><i  style="pointer-events : none;" class="fas fa-ban"></i></button>
+            <button class="btn btn-panier " id="${
+              product.id
+            }"><i style="pointer-events : none" class="fas fa-ban"></i></button>
           </div>
         </div>
           `;
     if (panier.length > 0) {
       dataUser = panier;
-      
     }
-    
   });
   panierProductContainer[0].innerHTML = html;
 
   document.querySelectorAll(".btn-quantity-minus").forEach((item) => {
     item.addEventListener("click", (e) => {
-      item = panier.find(x=> x.id === e.target.id)
-      if(item.quantity > 1) {
-        item.quantity = item.quantity - 1;
-      }
       localStorage.data = JSON.stringify(panier);
-      fetchPanier();
     });
   });
 
   document.querySelectorAll(".btn-quantity-plus").forEach((item) => {
     item.addEventListener("click", (e) => {
-      item = panier.find(x=> x.id === e.target.id)
-      item.quantity = item.quantity + 1;
-      localStorage.data = JSON.stringify(panier);
-      fetchPanier();
+      console.log("click");
     });
   });
 
@@ -76,15 +71,9 @@ const fetchPanier = async () => {
       fetchPanier();
     });
   });
-}
-else {
-  
-  form.classList.add('form-empty');
-  panierProductContainer[0].innerHTML = '<h3>Votre panier est vide</h3>';
-}
 };
 
-
+const form = document.querySelector("form");
 const inputs = document.querySelectorAll('input[type="text"]');
 let firstName, lastName, adress, city, email;
 
