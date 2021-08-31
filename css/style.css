@@ -70,6 +70,15 @@ form > input {
   justify-content: center;
 }
 
+.quantity {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.form-empty {
+  display: none;
+}
 @media screen and (max-width: 768px) {
   .product-cards > .media {
     flex-direction: column;
@@ -87,8 +96,4 @@ form > input {
     margin-bottom: 20px;
     margin-top: 20px;
   }
-}
-
-.form-empty {
-  display: none;
 }

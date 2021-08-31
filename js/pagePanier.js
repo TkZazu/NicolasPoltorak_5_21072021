@@ -1,28 +1,35 @@
 let panier = JSON.parse(localStorage.data);
 let user = localStorage.getItem("user");
 
-const formEmpty = document.querySelector("form");
-
 const panierProductContainer = document.getElementsByClassName("panier");
-// if ((panier.length = 1)) {
-//   formEmpty.classList.add("form-empty");
-// }
+
 const fetchPanier = async () => {
   await fetch("http://localhost:3000/api/cameras").then((res) => res.json());
   let html = "";
   panier.forEach((product, index) => {
     html += `
         <div class="row panier-row">
-          <div class="col-4 col-sm-4	col-md-4	col-lg-4	col-xl-4 border">
+          <div class="col-3 col-sm-3	col-md-3	col-lg-3	col-xl-3 border">
             <h4> ${product.nom} </h3>
           </div>
-          <div class="col-3 col-sm-3	col-md-3	col-lg-3	col-xl-3 border">
+          <div class="col-2 col-sm-2	col-md-2	col-lg-2	col-xl-2 border">
             <img class="card-img" src="${product.image}" alt="Photo de ${
       product.nom
     }" />
           </div>
-          <div class="col-4 col-sm-4 col-md-4	col-lg-4 col-xl-4 border">
-            <h4> ${product.price / 100}€</h3>
+          <div class="col-3 col-sm-3 col-md-3	col-lg-3 col-xl-3 border">
+            <h4> ${(product.price / 100) * product.quantity}€</h4>
+          </div>
+          <div class="col-3 col-sm-3 col-md-3	col-lg-3 col-xl-3 border quantity">
+            <div>
+              <button class="btn btn-quantity-minus" id="${index}"> - </button>
+            </div>
+            <div>
+              <h4> ${product.quantity} </h4>
+            </div>
+            <div>
+              <button class="btn btn-quantity-plus" id="${index}"> + </button>
+            </div>
           </div>
           <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 border">
             <button class="btn btn-panier " id="${index}"><i  class="fas fa-ban"></i></button>
@@ -34,6 +41,20 @@ const fetchPanier = async () => {
     }
   });
   panierProductContainer[0].innerHTML = html;
+
+  document.querySelectorAll(".btn-quantity-minus").forEach((item) => {
+    item.addEventListener("click", (e) => {
+      panier.splice(e.target.id, 1);
+      localStorage.data = JSON.stringify(panier);
+    });
+  });
+
+  document.querySelectorAll(".btn-quantity-plus").forEach((item) => {
+    item.addEventListener("click", (e) => {
+      console.log("click");
+    });
+  });
+
   document.querySelectorAll(".btn-panier").forEach((item) => {
     item.addEventListener("click", (e) => {
       panier.splice(e.target.id, 1);
