@@ -4,4 +4,4 @@ Ce repo Git contient le projet Orinoco, il représente un site e-commerce utilis
 
 # Prérequis
 
-Lancer l'API fournis avec le projet avant d'utiliser l'application. L'API n'est pas inclus dans les fichiers de ce repo.
+Lancer l'API fournis avec le projet avant d'utiliser l'application.
